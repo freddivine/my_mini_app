@@ -1,95 +1,31 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMC Coin App</title>
-    <style>
-        /* Background */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: radial-gradient(circle, #ff6666, #990000); /* Reddish gradient */
-            font-family: Arial, sans-serif;
-        }
-
-        /* Main Container */
-        .container {
-            text-align: center;
-            color: white;
-        }
-
-        /* Coin Style */
-        .coin {
-            width: 150px;
-            height: 150px;
-            background: gold;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2em;
-            color: #990000;
-            font-weight: bold;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Balance and Rank Info */
-        .balance {
-            font-size: 2em;
-            margin-top: 10px;
-        }
-
-        .rank {
-            font-size: 1em;
-            color: #cccccc;
-        }
-
-        /* Menu */
-        .menu {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .menu-item {
-            color: white;
-            text-align: center;
-        }
-
-        .menu-item img {
-            width: 40px;
-            height: 40px;
-        }
-    </style>
+    <title>AMC Arbitrage Mini-App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <!-- Balance Display -->
-        <div class="balance">16,941,238</div>
-        <div class="rank">231,724th • Diamond</div>
+        <div class="balance">
+            <span id="balance-value">0</span>
+        </div>
 
-        <!-- Coin Display -->
-        <div class="coin">AMC</div>
+        <!-- Coin Button with 3D Effect -->
+        <div class="coin-button" onclick="incrementBalance()">
+            <span class="coin-text">AMC</span>
+        </div>
 
-        <!-- Energy and Menu -->
+        <!-- Bottom Menu -->
         <div class="menu">
-            <div class="menu-item">
-                <img src="frens-icon.png" alt="Frens">
-                <div>Frens</div>
-            </div>
-            <div class="menu-item">
-                <img src="earn-icon.png" alt="Earn">
-                <div>Earn</div>
-            </div>
-            <div class="menu-item">
-                <img src="boosts-icon.png" alt="Boosts">
-                <div>Boosts</div>
-            </div>
+            <div class="menu-item">Frens</div>
+            <div class="menu-item">Earn</div>
+            <div class="menu-item">Boost 🚀</div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
