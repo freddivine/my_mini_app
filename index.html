@@ -3,96 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMC Arbitrage Airdrop</title>
+    <title>AMC Coin App</title>
     <style>
-        /* Base styling */
-        body, html {
+        /* Background */
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f8ff;
             margin: 0;
+            background: radial-gradient(circle, #ff6666, #990000); /* Reddish gradient */
             font-family: Arial, sans-serif;
+        }
+
+        /* Main Container */
+        .container {
             text-align: center;
+            color: white;
         }
 
-        /* Balance display */
-        .balance-display {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        /* Tap circle styling */
-        .tap-circle {
+        /* Coin Style */
+        .coin {
             width: 150px;
             height: 150px;
-            background-color: #ff7f50;
+            background: gold;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #fff;
-            font-size: 20px;
+            font-size: 2em;
+            color: #990000;
             font-weight: bold;
-            cursor: pointer;
-            animation: pulse 1s infinite;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        /* Circle pulse animation */
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+        /* Balance and Rank Info */
+        .balance {
+            font-size: 2em;
+            margin-top: 10px;
         }
 
-        /* Refiller bar styling */
-        .refiller-container {
-            width: 80%;
-            height: 20px;
-            background-color: #ddd;
-            border-radius: 10px;
+        .rank {
+            font-size: 1em;
+            color: #cccccc;
+        }
+
+        /* Menu */
+        .menu {
+            display: flex;
+            justify-content: space-around;
             margin-top: 20px;
-            overflow: hidden;
         }
-        .refiller-bar {
-            height: 100%;
-            background-color: #4caf50;
-            width: 100%;
-            transition: width 0.3s ease;
+
+        .menu-item {
+            color: white;
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 40px;
+            height: 40px;
         }
     </style>
 </head>
 <body>
-    <div class="balance-display">Balance: <span id="balance">0</span> points</div>
+    <div class="container">
+        <!-- Balance Display -->
+        <div class="balance">16,941,238</div>
+        <div class="rank">231,724th • Diamond</div>
 
-    <div class="tap-circle" onclick="tap()">Tap to Earn</div>
+        <!-- Coin Display -->
+        <div class="coin">AMC</div>
 
-    <div class="refiller-container">
-        <div class="refiller-bar" id="refiller"></div>
+        <!-- Energy and Menu -->
+        <div class="menu">
+            <div class="menu-item">
+                <img src="frens-icon.png" alt="Frens">
+                <div>Frens</div>
+            </div>
+            <div class="menu-item">
+                <img src="earn-icon.png" alt="Earn">
+                <div>Earn</div>
+            </div>
+            <div class="menu-item">
+                <img src="boosts-icon.png" alt="Boosts">
+                <div>Boosts</div>
+            </div>
+        </div>
     </div>
-
-    <script>
-        let balance = 0;
-        let refiller = 100;
-
-        // Tap function
-        function tap() {
-            if (refiller > 0) {
-                balance += 1;  // Increase balance
-                refiller -= 5; // Decrease refiller by 5%
-
-                // Update UI
-                document.getElementById("balance").innerText = balance;
-                document.getElementById("refiller").style.width = refiller + "%";
-
-                // Reset refiller when it reaches 0
-                if (refiller <= 0) {
-                    alert("Refiller empty! Please wait to refill.");
-                    refiller = 100;
-                }
-            }
-        }
-    </script>
 </body>
 </html>
