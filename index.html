@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f7f7f7; }
+        #balance { font-size: 24px; margin-bottom: 20px; }
+        #circle { width: 100px; height: 100px; background-color: #ff5722; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; cursor: pointer; }
+        #refiller { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div id="balance">Balance: 0</div>
+    <div id="circle" onclick="earn()">Tap to Earn</div>
+    <div id="refiller">Refiller: 100</div>
+    <script>
+        let balance = 0;
+        let refiller = 100;
+
+        function earn() {
+            if (refiller > 0) {
+                balance += 1;
+                refiller -= 1;
+                document.getElementById("balance").textContent = `Balance: ${balance}`;
+                document.getElementById("refiller").textContent = `Refiller: ${refiller}`;
+            } else {
+                alert("No more refills. Wait for recharge.");
+            }
+        }
+    </script>
+</body>
+</html>
