@@ -1,29 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMC Arbitrage Airdrop</title>
     <style>
-        body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f7f7f7; }
-        #balance { font-size: 24px; margin-bottom: 20px; }
-        #circle { width: 100px; height: 100px; background-color: #ff5722; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; cursor: pointer; }
-        #refiller { margin-top: 20px; }
+        /* Base styling */
+        body, html {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        /* Balance display */
+        .balance-display {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Tap circle styling */
+        .tap-circle {
+            width: 150px;
+            height: 150px;
+            background-color: #ff7f50;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            animation: pulse 1s infinite;
+        }
+
+        /* Circle pulse animation */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Refiller bar styling */
+        .refiller-container {
+            width: 80%;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .refiller-bar {
+            height: 100%;
+            background-color: #4caf50;
+            width: 100%;
+            transition: width 0.3s ease;
+        }
     </style>
 </head>
 <body>
-    <div id="balance">Balance: 0</div>
-    <div id="circle" onclick="earn()">Tap to Earn</div>
-    <div id="refiller">Refiller: 100</div>
+    <div class="balance-display">Balance: <span id="balance">0</span> points</div>
+
+    <div class="tap-circle" onclick="tap()">Tap to Earn</div>
+
+    <div class="refiller-container">
+        <div class="refiller-bar" id="refiller"></div>
+    </div>
+
     <script>
         let balance = 0;
         let refiller = 100;
 
-        function earn() {
+        // Tap function
+        function tap() {
             if (refiller > 0) {
-                balance += 1;
-                refiller -= 1;
-                document.getElementById("balance").textContent = `Balance: ${balance}`;
-                document.getElementById("refiller").textContent = `Refiller: ${refiller}`;
-            } else {
-                alert("No more refills. Wait for recharge.");
+                balance += 1;  // Increase balance
+                refiller -= 5; // Decrease refiller by 5%
+
+                // Update UI
+                document.getElementById("balance").innerText = balance;
+                document.getElementById("refiller").style.width = refiller + "%";
+
+                // Reset refiller when it reaches 0
+                if (refiller <= 0) {
+                    alert("Refiller empty! Please wait to refill.");
+                    refiller = 100;
+                }
             }
         }
     </script>
